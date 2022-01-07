@@ -16,7 +16,6 @@ function App() {
 
   return (
     <>
-      <h2>HELLO</h2>
       <LeftMenu isLoaded={isLoaded} />
       {/* <Navigation isLoaded={isLoaded} /> */}
       {isLoaded && (

@@ -1,7 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 import './LeftMenu.css';
+import appleLogo from '../../images/soundApple.jpeg'
+import Home from '../Home';
 
 function LeftMenu({ isLoaded }) {
     // const sessionUser = useSelector(state => state.session.user);
@@ -22,12 +24,17 @@ function LeftMenu({ isLoaded }) {
 
     return (
         <div className='navOptions'>
-            <NavLink exact to="/">Home</NavLink>
-            <NavLink exact to="/">Stream</NavLink>
-            <NavLink exact to="/">Library</NavLink>
+            <img src={appleLogo} />
+            <input type="text" placeholder='Search' />
+            <NavLink exact to="/"><i className="fas fa-home"></i> Home </NavLink>
+            <NavLink exact to="/"><i className="fas fa-stream"></i> Stream</NavLink>
+            <NavLink exact to="/"><i className="fas fa-book-open"></i> Library</NavLink>
 
             {/* {isLoaded && sessionLinks} */}
             <hr />
+
+
+
         </div>
     );
 }

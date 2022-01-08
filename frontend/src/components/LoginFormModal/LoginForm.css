@@ -1,12 +1,49 @@
-body * {
+form{
+    min-width: 640px;
+    min-height: 480px;
+    height: 550px;
+    padding-top: 70px;
+    position: relative;
+    width: 100%;
+    text-align: center;
     display: flex;
     flex-direction: column;
+    font-size: 17px;
+    line-height: 1.47059;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    color: white;
+    border-radius: 12px;
+    background-color: #3a3a3d;
 }
 
+.form-textbox{
+    font-size: 17px;
+    line-height: 1.29412;
+    font-weight: 400;
+    letter-spacing: -0.021em;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    width: 100%;
+    height: 34px;
+    margin-bottom: 14px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: rgb(51, 51, 51);
+    text-align: left;
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-radius: 4px;
+    color: #ffffff;
+    border-color: rgba(214, 214, 214, 0.2);
+    width: 60%;
+    align-self: center;
+}
 
-.forms{
+.form-button{
     width: 50%;
     align-self: center;
-    text-align: center;
-    align-items: center;
 }

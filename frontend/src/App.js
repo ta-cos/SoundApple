@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import LoginFormModal from "./components/LoginFormModal";
 import SignUpFormModal from "./components/SignUpFormModal";
 import LeftMenu from "./components/LeftMenu";
+import Home from "./components/Home";
 
 function App() {
   const dispatch = useDispatch();
@@ -16,10 +17,13 @@ function App() {
 
   return (
     <>
+      <Navigation isLoaded={isLoaded} />
       <LeftMenu isLoaded={isLoaded} />
-      {/* <Navigation isLoaded={isLoaded} /> */}
       {isLoaded && (
         <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
           <Route path="/login">
             <LoginFormModal />
           </Route>

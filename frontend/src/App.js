@@ -7,7 +7,7 @@ import LoginFormModal from "./components/LoginFormModal";
 import SignUpFormModal from "./components/SignUpFormModal";
 import LeftMenu from "./components/LeftMenu";
 import Home from "./components/Home";
-
+import { HomeItem } from "./components/Home";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -22,7 +22,11 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home>
+              <HomeItem> ITEM 1 </HomeItem>
+              <HomeItem> ITEM 2 </HomeItem>
+              <HomeItem> ITEM 3 </HomeItem>
+            </Home>
           </Route>
           <Route path="/login">
             <LoginFormModal />

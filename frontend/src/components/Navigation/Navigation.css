@@ -5,13 +5,10 @@
 
 .registration{
     display: flex;
-    justify-content: flex-end;
-    background-color: 252526;
     padding: 20px 0px 20px 20px;
     position: absolute;
     top: 0;
     right: 0;
-    text-overflow: none;
 }
 
 .registration > * {

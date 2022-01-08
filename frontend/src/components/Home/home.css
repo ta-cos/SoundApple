@@ -1,3 +1,26 @@
-h2{
-    color: white;
+.carousel{
+    overflow: hidden;
+}
+
+.inner{
+    transition: trasform 0.5s;
+    white-space: nowrap;
+}
+
+.home-item{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background-color: yellowgreen;
+    color: #fff;
+}
+
+.indicators{
+    display: flex;
+    justify-content: center;
+}
+
+.indicators > button{
+    margin: 5px;
 }

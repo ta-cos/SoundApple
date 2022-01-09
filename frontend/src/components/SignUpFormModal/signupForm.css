@@ -1,0 +1,69 @@
+.signup-form{
+min-width: 640px;
+min-height: 480px;
+height: 550px;
+padding-top: 70px;
+position: relative;
+width: 100%;
+text-align: center;
+display: flex;
+flex-direction: column;
+font-size: 17px;
+line-height: 1.47059;
+font-weight: 400;
+letter-spacing: -0.022em;
+color: white;
+background-color: #3a3a3d;
+}
+
+.signup-textbox{
+    font-size: 17px;
+    line-height: 1.29412;
+    font-weight: 400;
+    letter-spacing: -0.021em;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    width: 100%;
+    height: 34px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: rgb(51, 51, 51);
+    text-align: left;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    color: #ffffff;
+    border-color: rgba(214, 214, 214, 0.2);
+    width: 60%;
+    align-self: center;
+}
+
+.signup-button{
+    width: 50%;
+    align-self: center;
+    background-color: rgba(255, 103, 1, 0.5);
+    color: white;
+    border-radius: 6px;
+    margin-top: 25px;
+    border: none;
+    height: 30px;
+}
+
+h1{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+h3{
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+.signupImg{
+    height: 100px;
+    width: 100px;
+    align-self: center;
+    margin-bottom: 25px;
+}

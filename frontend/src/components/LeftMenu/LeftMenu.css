@@ -1,7 +1,9 @@
-img{
+.menuImg{
     width: 90%;
     border-radius: 12px;
     margin-top: 25px;
+    align-self: center;
+    margin-bottom: 25px;
 }
 
 .inputLeftMenu{
@@ -50,8 +52,6 @@ hr{
     align-self: center;
     margin-top: 10px;
 }
-
-
 
 
 .active{

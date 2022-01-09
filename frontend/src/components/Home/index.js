@@ -15,7 +15,7 @@ function Home({ children }) {
 
     function updateItem(newItem) {
         const max = React.Children.count(children)
-        if (newItem < 0) newItem = max;
+        if (newItem < 0) newItem = max -1;
         else if (newItem > max - 1)
             newItem = 0
         console.log(newItem)

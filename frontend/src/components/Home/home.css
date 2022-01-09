@@ -1,20 +1,23 @@
 .carousel{
     overflow: hidden;
-    width: 50%;
-    margin-top: 5%;
-    border-radius: 12px;
+    min-width: 75%;
+    margin-top: 7.5%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .inner{
     transition: trasform 0.5s;
     white-space: nowrap;
+    height: 50%;
+    width: 100%;
 }
 
 .home-item{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 200px;
+    height: 100%;
     background-color: yellowgreen;
     color: #fff;
     border-radius: 12px;

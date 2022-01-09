@@ -5,9 +5,10 @@
 
 .registration{
     display: flex;
-    justify-content: flex-end;
-    background-color: black;
     padding: 20px 0px 20px 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .registration > * {
@@ -15,14 +16,8 @@
     border-radius: 6px;
     margin-right: 20px;
     padding: 0px 12px;
-    background-color: #D60017;
+    background-color: #ff6701;
     color: white;
     border: none;
     font-size: 13px;
-
-    transition: background-color .1s ease-in;
-    transition-property: background-color;
-    transition-duration: 0.1s;
-    transition-timing-function: ease-in;
-    transition-delay: 0s;
 }

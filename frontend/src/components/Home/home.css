@@ -1,0 +1,30 @@
+.carousel{
+    overflow: hidden;
+    width: 50%;
+    margin-top: 5%;
+    border-radius: 12px;
+}
+
+.inner{
+    transition: trasform 0.5s;
+    white-space: nowrap;
+}
+
+.home-item{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background-color: yellowgreen;
+    color: #fff;
+    border-radius: 12px;
+}
+
+.indicators{
+    display: flex;
+    justify-content: center;
+}
+
+.indicators > button{
+    margin: 5px;
+}

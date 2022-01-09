@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import './signupForm.css'
+import appleLogo from "../../images/apple-logo.png"
+
 
 function SignupForm() {
     const dispatch = useDispatch();
@@ -28,51 +31,53 @@ function SignupForm() {
     };
 
     return (
-        <div className="forms">
-            <form onSubmit={handleSubmit}>
-                <ul>
-                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                </ul>
-                <h1>Sign Up</h1>
-                <label>
-                    Email
-                    <input
-                        type="text"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                </label>
-                <label>
-                    Username
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                    />
-                </label>
-                <label>
-                    Password
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </label>
-                <label>
-                    Confirm Password
-                    <input
-                        type="password"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                        required
-                    />
-                </label>
-                <button type="submit">Sign Up</button>
-            </form>
-        </div>
+        <form onSubmit={handleSubmit} className="signup-form">
+
+            <img className="signupImg" src={appleLogo} />
+            <h1>Create your Sound Apple ID</h1>
+            <h3>You may also select the demo option below</h3>
+
+
+            <h1>Sign Up</h1>
+            <input
+                className="signup-textbox"
+                placeholder="Email"
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+            />
+            <input
+                placeholder="Username"
+                className="signup-textbox"
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+            />
+
+            <input
+                placeholder="Password"
+                className="signup-textbox"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+            />
+            <input
+                placeholder="Confirm Password"
+                className="signup-textbox"
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+            />
+            <button type="submit" disabled={errors.length > 0} className="signup-button">Sign Up</button>
+
+            <ul>
+                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            </ul>
+        </form>
     );
 }
 

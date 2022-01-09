@@ -24,7 +24,7 @@ function LeftMenu({ isLoaded }) {
 
     return (
         <div className='navOptions'>
-            <img src={appleLogo} />
+            <img className='menuImg' src={appleLogo} />
             <input className='inputLeftMenu' type="text" placeholder='Search' />
             <NavLink exact activeClassName='active' to="/"><i className="fas fa-home"></i> Home </NavLink>
             <NavLink activeClassName='active' to="/stream"><i className="fas fa-stream"></i> Stream</NavLink>

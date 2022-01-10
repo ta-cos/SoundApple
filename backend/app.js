@@ -37,6 +37,8 @@ app.use(
 );
 
 
+app.use(routes); // Connect all the routes
+
 //------------- ERROR Handeling -------------------------
 app.use((_req, _res, next) => {
     const err = new Error("The requested resource couldn't be found.");
@@ -67,10 +69,6 @@ app.use((err, _req, res, _next) => {
 });
 
 
-app.get("/", (req, res) => {
-    res.send("FINALLY")
-})
 
-app.use(routes); // Connect all the routes
 
 module.exports = app;

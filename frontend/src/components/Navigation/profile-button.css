@@ -1,0 +1,11 @@
+.profile-dropdown{
+    text-decoration: none;
+    list-style: none;
+}
+
+.profile-dropdown > button{
+    width: inherit;
+    background-color: white;
+    color: #ff6701;
+    border: none;
+}

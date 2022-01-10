@@ -6,8 +6,9 @@ import Navigation from "./components/Navigation";
 import LoginFormModal from "./components/LoginFormModal";
 import SignUpFormModal from "./components/SignUpFormModal";
 import LeftMenu from "./components/LeftMenu";
-import Home from "./components/Home";
-import { HomeItem } from "./components/Home";
+import Upload from "./components/Upload"
+
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -21,12 +22,8 @@ function App() {
       <LeftMenu isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route exact path="/">
-            <Home>
-              <HomeItem> ITEM 1 </HomeItem>
-              <HomeItem> ITEM 2 </HomeItem>
-              <HomeItem> ITEM 3 </HomeItem>
-            </Home>
+          <Route exact path="/upload">
+            <Upload />
           </Route>
           <Route path="/login">
             <LoginFormModal />

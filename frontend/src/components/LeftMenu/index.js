@@ -1,35 +1,30 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 import './LeftMenu.css';
 import appleLogo from '../../images/soundApple.jpeg'
 
 function LeftMenu({ isLoaded }) {
-    // const sessionUser = useSelector(state => state.session.user);
+    const sessionUser = useSelector(state => state.session.user);
 
-    // let sessionLinks;
-    // if (sessionUser) {
-    //     sessionLinks = (
-    //         <ProfileButton user={sessionUser} />
-    //     );
-    // } else {
-    //     sessionLinks = (
-    //         <>
-    //             <LoginFormModal />
-    //             <SignUpFormModal />
-    //         </>
-    //     );
-    // }
+    let sessionLinks;
+    if (sessionUser) {
+        sessionLinks = (
+
+            <NavLink activeClassName='active' to="upload"><i className="fas fa-play"></i>  Upload </NavLink>
+        );
+    }
 
     return (
         <div className='navOptions'>
             <img className='menuImg' alt="logo" src={appleLogo} />
             <input className='inputLeftMenu' type="text" placeholder='Search' />
-            <NavLink exact activeClassName='active' to="/"><i className="fas fa-home"></i> Home </NavLink>
-            <NavLink activeClassName='active' to="/stream"><i className="fas fa-stream"></i> Stream</NavLink>
-            <NavLink activeClassName='active' to="/library" ><i className="fas fa-book-open"></i> Library</NavLink>
+            <NavLink exact activeClassName='active' to="/"><i className="fas fa-home"></i>  Home </NavLink>
+            <NavLink activeClassName='active' to="/stream"><i className="fas fa-stream"></i>  Stream</NavLink>
+            <NavLink activeClassName='active' to="/library" ><i className="fas fa-book-open"></i>  Library</NavLink>
 
-            {/* {isLoaded && sessionLinks} */}
+            {isLoaded && sessionLinks}
             <hr />
 
             <p className='SalesPitch'>Thank you for listening, sign up or demo for more fun </p>

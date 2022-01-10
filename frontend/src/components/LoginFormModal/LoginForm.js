@@ -21,6 +21,12 @@ function LoginForm() {
         );
     };
 
+    const handleClick = (e) => {
+        e.preventDefault()
+        setCredential("demo")
+        setPassword("demouser")
+    };
+
     return (
         <form onSubmit={handleSubmit} className="login-form">
             <img className="loginImg" alt="logo" src={appleLogo} />
@@ -51,7 +57,9 @@ function LoginForm() {
             </ul>
 
             <button className="form-button" type="submit">Log In</button>
-        </form>
+            <button className="form-button" type="submit" onClick={handleClick}>Demo</button>
+
+        </form >
     );
 }
 

@@ -67,8 +67,8 @@ app.use((err, _req, res, _next) => {
 });
 
 
-app.get((req, res) => {
-    res.send("HELLO THERE")
+app.get("/", (req, res) => {
+    res.send("FINALLY")
 })
 
 app.use(routes); // Connect all the routes

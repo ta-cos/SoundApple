@@ -68,5 +68,9 @@ app.use((err, _req, res, _next) => {
 });
 
 
+app.get((req, res) => {
+    res.send("HELLO THERE")
+})
+
 
 module.exports = app;

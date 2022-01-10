@@ -36,7 +36,6 @@ app.use(
     })
 );
 
-app.use(routes); // Connect all the routes
 
 //------------- ERROR Handeling -------------------------
 app.use((_req, _res, next) => {
@@ -72,5 +71,6 @@ app.get((req, res) => {
     res.send("HELLO THERE")
 })
 
+app.use(routes); // Connect all the routes
 
 module.exports = app;

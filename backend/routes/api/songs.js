@@ -3,12 +3,17 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { db } = require('../../config');
+const tracksRepository = require("../../db/tracksRepository");
 
 const router = express.Router();
 
 router.get('/', asyncHandler(async function (_req, res) {
-    const songs = await db.Tracks.findAll();
-    console.log(songs)
-    return res.json(songs);
+    console.log('*************************')
+    const tracks = await tracksRepository.list();
+    console.log('*************************')
+
+    console.log(tracks)
+    return res.json(tracks);
 }));
+
+module.exports = router;

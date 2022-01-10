@@ -23,7 +23,7 @@ function LoginForm() {
 
     return (
         <form onSubmit={handleSubmit} className="login-form">
-            <img className="loginImg" src={appleLogo} />
+            <img className="loginImg" alt="logo" src={appleLogo} />
             <h1>Sign in with your Sound Apple ID</h1>
             <h3>You may also select the demo option below</h3>
 

@@ -33,7 +33,7 @@ function SignupForm() {
     return (
         <form onSubmit={handleSubmit} className="signup-form">
 
-            <img className="signupImg" src={appleLogo} />
+            <img className="signupImg" alt="logo" src={appleLogo} />
             <h1>Create your Sound Apple ID</h1>
             <h3>You may also select the demo option below</h3>
 

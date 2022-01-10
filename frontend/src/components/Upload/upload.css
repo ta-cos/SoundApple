@@ -1,27 +1,28 @@
-.signup-form{
-min-width: 640px;
-min-height: 480px;
-height: 550px;
-padding-top: 70px;
-position: relative;
-width: 100%;
-text-align: center;
-display: flex;
-flex-direction: column;
-font-size: 17px;
-line-height: 1.47059;
-font-weight: 400;
-letter-spacing: -0.022em;
-color: white;
-background-color: #3a3a3d;
+.upload-form{
+    margin-top: auto;
+    margin-bottom: auto;
+    min-width: 640px;
+    min-height: 480px;
+    height: 550px;
+    padding-top: 70px;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 17px;
+    line-height: 1.47059;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    color: white;
+    background-color: #3a3a3d;
 }
 
-.signup-textbox{
+.upload-textbox{
     font-size: 17px;
     line-height: 1.29412;
     font-weight: 400;
     letter-spacing: -0.021em;
-    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
     display: inline-block;
     box-sizing: border-box;
     vertical-align: top;
@@ -33,6 +34,7 @@ background-color: #3a3a3d;
     text-align: left;
     border-width: 1px;
     border-style: solid;
+    border-image: initial;
     border-radius: 4px;
     color: black;
     border-color: rgba(214, 214, 214, 0.2);
@@ -40,7 +42,7 @@ background-color: #3a3a3d;
     align-self: center;
 }
 
-.signup-button{
+.upload-button{
     width: 50%;
     align-self: center;
     background-color: rgba(255, 103, 1, 0.5);
@@ -61,7 +63,7 @@ h3{
     margin-bottom: 25px;
 }
 
-.signupImg{
+.loginImg{
     height: 100px;
     width: 100px;
     align-self: center;

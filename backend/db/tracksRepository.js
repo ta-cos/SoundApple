@@ -12,23 +12,23 @@ async function songsByUserId(userId) {
     });
 }
 
-async function addSong(details, userId) {
+async function addSong(details) {
+
     const song = await Track.create({
         ...details,
-        userId,
     });
-    return await Track.findByPk(item.id);
+    return await Track.findByPk(song.id);
 }
 
 async function deleteSong(songId) {
-    const Track = await Track.findByPk(songId);
+    const song = await Track.findByPk(songId);
     if (!song) throw new Error('Cannot find item');
 
     await Track.destroy({ where: { id: song.id } });
     return song.id;
 }
 
-async function updatesong(details) {
+async function updateSong(details) {
     const id = details.id;
     delete details.id;
     console.log({ details, id });
@@ -47,6 +47,6 @@ module.exports = {
     songsByUserId,
     addSong,
     deleteSong,
-    updatesong,
+    updateSong,
     list,
 };

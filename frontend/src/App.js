@@ -7,6 +7,9 @@ import LoginFormModal from "./components/LoginFormModal";
 import SignUpFormModal from "./components/SignUpFormModal";
 import LeftMenu from "./components/LeftMenu";
 import Upload from "./components/Upload"
+import Songs from "./components/Songs"
+import SongDetails from "./components/SongDetails";
+import EditSongForm from "./components/SongEditForm";
 
 
 function App() {
@@ -22,6 +25,10 @@ function App() {
       <LeftMenu isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path="/"/>
+          <Route path="/stream">
+            <Songs />
+          </Route>
           <Route exact path="/upload">
             <Upload />
           </Route>
@@ -30,6 +37,12 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignUpFormModal />
+          </Route>
+          <Route path="/songs/:id/edit">
+            <EditSongForm />
+          </Route>
+          <Route path="/songs/:id">
+            <SongDetails />
           </Route>
         </Switch>
       )}

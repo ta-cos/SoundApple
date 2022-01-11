@@ -1,5 +1,7 @@
 //------- Variables/Helper Functions ---------------------------------------------------------------
 
+import { csrfFetch } from "./csrf"
+
 const CREATE_SONG = 'songs/create'
 const LOAD_SONGS = 'songs/load'
 const UPDATE_SONG = 'songs/update'
@@ -11,7 +13,7 @@ const DELETE_SONG = 'songs/delete'
 const newSong = (song) => {
     return {
         type: CREATE_SONG,
-        payload: song,
+        song,
     }
 }
 
@@ -38,9 +40,8 @@ const removeSong = () => {
 
 
 export const createSong = (song) => async (dispatch) => {
-    console.log("song", song)
     const { userId, album, title, audio } = song;
-    const response = await fetch('/api/songs', {
+    const response = await csrfFetch('/api/songs', {
         method: 'POST',
         body: JSON.stringify({
             userId,
@@ -51,11 +52,12 @@ export const createSong = (song) => async (dispatch) => {
 
     });
     const data = await response.json();
-    dispatch(newSong(data.song));
+    dispatch(newSong(data));
     return response;
 };
 
 export const getSongs = () => async dispatch => {
+
     const response = await fetch(`/api/songs`);
 
     if (response.ok) {
@@ -65,10 +67,12 @@ export const getSongs = () => async dispatch => {
 };
 
 export const updateSong = (song) => async (dispatch) => {
-    const { userId, albumId, title, audio } = song;
-    const response = await fetch('/api/songs/:id', {
+    const { id, userId, albumId, title, audio } = song;
+
+    const response = await csrfFetch(`/api/songs/${id}`, {
         method: 'POST',
         body: JSON.stringify({
+            id,
             userId,
             albumId,
             title,
@@ -80,8 +84,8 @@ export const updateSong = (song) => async (dispatch) => {
     return response;
 };
 
-export const deleteSong = () => async (dispatch) => {
-    const response = await fetch('/api/songs/:id', {
+export const deleteSong = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/songs/${id}`, {
         method: 'DELETE',
     });
     dispatch(removeSong());
@@ -90,7 +94,9 @@ export const deleteSong = () => async (dispatch) => {
 
 //----- REDUCER --------------------------------------------------------------------------
 
-const initialState = {};
+const initialState = {
+    list: []
+};
 const songReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {

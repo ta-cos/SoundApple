@@ -1,36 +1,43 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams, Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import appleLogo from "../../images/apple-logo.png"
-import './upload.css'
-import { createSong } from "../../store/songs";
+import { updateSong } from "../../store/songs";
 
 
-function Upload() {
-    const dispatch = useDispatch();
+function EditSongForm() {
     const sessionUser = useSelector((state) => state.session.user);
+    const dispatch = useDispatch();
     const [title, setTitle] = useState("");
     const [album, setAlbum] = useState("");
     const [url, setURL] = useState("");
     const [errors, setErrors] = useState([]);
-    const userId = sessionUser.id
     const history = useHistory()
+    const { id } = useParams();
+
+    if (!sessionUser) {
+        return <Redirect to="/login" />
+    }
+
+    const userId = sessionUser.id
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const song = {
+            id,
             userId,
             title,
             album,
             url
         }
 
-        let createdSong = await dispatch(createSong(song));
+        let updated = await dispatch(updateSong(song));
 
 
-        if (createdSong) {
+        if (updated) {
             history.goBack();
         }
     };
@@ -39,7 +46,7 @@ function Upload() {
         <form onSubmit={handleSubmit} className="upload-form">
 
             <img className="signupImg" alt="logo" src={appleLogo} />
-            <h1>Share your music with the world</h1>
+            <h1>Edit your musics info</h1>
 
             <input
                 className="upload-textbox"
@@ -75,4 +82,4 @@ function Upload() {
     );
 }
 
-export default Upload;
+export default EditSongForm;

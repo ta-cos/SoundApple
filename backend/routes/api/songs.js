@@ -8,12 +8,12 @@ const tracksRepository = require("../../db/tracksRepository");
 const router = express.Router();
 
 router.get('/', asyncHandler(async function (_req, res) {
-    console.log('*************************')
     const tracks = await tracksRepository.list();
-    console.log('*************************')
-
-    console.log(tracks)
     return res.json(tracks);
 }));
 
+router.post('/', requireAuth, asyncHandler(async function (_req, res) {
+    const tracks = await tracksRepository.addSong();
+    return res.json(tracks);
+}));
 module.exports = router;

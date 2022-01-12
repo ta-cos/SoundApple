@@ -4,6 +4,8 @@ import { Link, useParams, Redirect } from 'react-router-dom';
 import { getOneSong, getSongs } from '../../store/songs';
 import LoginFormModal from '../LoginFormModal';
 import SongDetails from '../SongDetails';
+import Player from '../Player'
+
 
 import './songs.css'
 
@@ -43,9 +45,10 @@ const Songs = () => {
             {songs.map((song) => (
                 <div key={song.id}>
                     <Link to={`/library/${song.id}`}> {song.title} </Link>
+                    <Player />
                 </div>
-            ))}
 
+            ))}
         </div>
     )
 

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Modal } from '../../Context/Modal';
-import LoginForm from './LoginForm';
+import UploadForm from './UploadForm';
 
-function LoginFormModal({ prop = false }) {
+
+function UploadSongModal({ prop = false }) {
     const [showModal, setShowModal] = useState(prop);
     const hideButtonStyle = {
         display: 'none',
@@ -14,15 +15,15 @@ function LoginFormModal({ prop = false }) {
                 onClick={() => setShowModal(true)}
                 style={prop ? hideButtonStyle : null}
             >
-                Sign In
+                Add Song
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <LoginForm />
+                    <UploadForm />
                 </Modal>
             )}
         </>
     );
 }
 
-export default LoginFormModal;
+export default UploadSongModal;

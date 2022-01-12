@@ -23,8 +23,13 @@ function LoginForm() {
 
     const handleClick = (e) => {
         e.preventDefault()
-        setCredential("demo")
-        setPassword("demouser")
+
+        return dispatch(sessionActions.login({ credential: "demo", password: "password" })).catch(
+            async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            }
+        );
     };
 
     return (

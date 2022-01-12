@@ -2,3 +2,27 @@
     height: 250px;
     width: 250px;
 }
+
+.sadCat{
+    height: 500px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    border-radius: 50%;
+}
+
+h2{
+    margin-top: 25px;
+    color: white;
+    align-self: center;
+    justify-self: center;
+}
+
+.notLoggedIn{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}

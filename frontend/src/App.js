@@ -10,6 +10,7 @@ import Upload from "./components/Upload"
 import Songs from "./components/Songs"
 import SongDetails from "./components/SongDetails";
 import EditSongForm from "./components/SongEditForm";
+import MyMusic from "./components/MyMusic";
 
 
 function App() {
@@ -25,12 +26,12 @@ function App() {
       <LeftMenu isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route exact path="/"/>
-          <Route path="/stream">
+          <Route exact path="/" />
+          <Route path="/library">
             <Songs />
           </Route>
-          <Route exact path="/upload">
-            <Upload />
+          <Route exact path="/my-music">
+            <MyMusic />
           </Route>
           <Route path="/login">
             <LoginFormModal />

@@ -18,8 +18,6 @@ router.post('/', requireAuth, asyncHandler(async function (_req, res) {
 }));
 
 router.post('/:id', requireAuth, asyncHandler(async function (_req, res) {
-    console.log("!!!!!!!!!!!!!!!!!!!!")
-    console.log(_req.body)
     const tracks = await tracksRepository.updateSong(_req.body);
     return res.json(tracks);
 }));

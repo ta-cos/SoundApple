@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import appleLogo from "../../images/apple-logo.png"
+import './upload.css'
 import { createSong } from "../../store/songs";
 
 
-function Upload() {
+function UploadForm() {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const [title, setTitle] = useState("");
@@ -38,7 +39,6 @@ function Upload() {
         <form onSubmit={handleSubmit} className="upload-form">
 
             <img className="signupImg" alt="logo" src={appleLogo} />
-            <h1>Add your latest hit </h1>
             <h1>Share your music with the world</h1>
 
             <input
@@ -75,4 +75,4 @@ function Upload() {
     );
 }
 
-export default Upload;
+export default UploadForm;

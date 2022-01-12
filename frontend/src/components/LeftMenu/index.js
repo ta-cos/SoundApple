@@ -12,7 +12,7 @@ function LeftMenu({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
 
-            <NavLink activeClassName='active' to="upload"><i className="fas fa-play"></i>  Upload </NavLink>
+            <NavLink activeClassName='active' to="/my-music"><i className="fas fa-play"></i>  My Music </NavLink>
         );
     }
 
@@ -21,8 +21,7 @@ function LeftMenu({ isLoaded }) {
             <img className='menuImg' alt="logo" src={appleLogo} />
             <input className='inputLeftMenu' type="text" placeholder='Search' />
             <NavLink exact activeClassName='active' to="/"><i className="fas fa-home"></i>  Home </NavLink>
-            <NavLink activeClassName='active' to="/stream"><i className="fas fa-stream"></i>  Stream</NavLink>
-            <NavLink activeClassName='active' to="/library" ><i className="fas fa-book-open"></i>  Library</NavLink>
+            <NavLink activeClassName='active' to="/library"><i className="fas fa-book-open"></i>  Library</NavLink>
 
             {isLoaded && sessionLinks}
             <hr />

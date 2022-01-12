@@ -1,60 +1,66 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams, Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import appleLogo from "../../images/apple-logo.png"
-import './upload.css'
-import { createSong } from "../../store/songs";
-import { getAlbumsById } from "../../store/albums"
+import { updateSong } from "../../store/songs";
+
+import './EditSong.css'
 
 
-function UploadForm() {
+function EditSongForm() {
+    const sessionUser = useSelector((state) => state.session.user);
+    const songs = useSelector(state => {
+        return state.songs.list
+    })
     const albums = useSelector(state => {
         return state.albums.list
     })
     const dispatch = useDispatch();
-    const sessionUser = useSelector((state) => state.session.user);
     const [title, setTitle] = useState("");
-    const [albumId, setAlbum] = useState(albums[0].id);
+    const [album, setAlbum] = useState("");
     const [url, setURL] = useState("");
+    const [songId, setSongId] = useState(songs[0].id);
     const [errors, setErrors] = useState([]);
+    const { id } = useParams();
     const userId = sessionUser.id
-    const history = useHistory()
 
-    const updateAlbum = (e) => {
-        setAlbum(e.target.value)
-    };
-
-
-    useEffect(() => {
-        dispatch(getAlbumsById(sessionUser.id))
-    }, [dispatch])
-
-
+    if (!sessionUser) {
+        return <Redirect to="/login" />
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         const song = {
+            id: songId,
             userId,
             title,
-            albumId: +albumId,
+            album,
             url
         }
+        await dispatch(updateSong(song));
+    };
 
-        let createdSong = await dispatch(createSong(song));
+    const updateSongId = (e) => {
+        setSongId(e.target.value)
+        console.log(songId)
+    };
 
-
-        if (createdSong) {
-            history.push('/library');
-        }
+    const updateAlbum = (e) => {
+        setAlbum(e.target.value)
     };
 
     return (
         <form onSubmit={handleSubmit} className="upload-form">
 
             <img className="signupImg" alt="logo" src={appleLogo} />
-            <h1>Share your music with the world</h1>
+            <h1>Edit your song info</h1>
+
+            <select onChange={updateSongId}>
+                {songs.map((song) => (
+                    <option key={song.id} value={song.id}>{song.title}</option>
+                ))}
+            </select>
 
             <input
                 className="upload-textbox"
@@ -79,7 +85,7 @@ function UploadForm() {
                 onChange={(e) => setURL(e.target.value)}
             />
 
-            <button type="submit" disabled={errors.length > 0} className="upload-button">Upload</button>
+            <button type="submit" disabled={errors.length > 0} className="upload-button">Edit</button>
 
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -88,4 +94,4 @@ function UploadForm() {
     );
 }
 
-export default UploadForm;
+export default EditSongForm;

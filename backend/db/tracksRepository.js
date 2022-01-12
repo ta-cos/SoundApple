@@ -12,6 +12,10 @@ async function songsByUserId(userId) {
     });
 }
 
+async function getOneSong(trackId) {
+    return await Track.findByPk(trackId)
+}
+
 async function addSong(details) {
 
     const song = await Track.create({
@@ -49,4 +53,5 @@ module.exports = {
     deleteSong,
     updateSong,
     list,
+    getOneSong
 };

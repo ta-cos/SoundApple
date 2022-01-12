@@ -27,7 +27,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path="/" />
-          <Route path="/library">
+          <Route exact path="/library">
             <Songs />
           </Route>
           <Route exact path="/my-music">
@@ -39,12 +39,10 @@ function App() {
           <Route path="/signup">
             <SignUpFormModal />
           </Route>
-          <Route path="/songs/:id/edit">
-            <EditSongForm />
-          </Route>
-          <Route path="/songs/:id">
+          <Route path="/library/:id">
             <SongDetails />
           </Route>
+          <Route><h1>PAGE NOT FOUND</h1></Route>
         </Switch>
       )}
     </>

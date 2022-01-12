@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import songReducer from './songs';
 import songs from './songs'
+import albums from './albums'
 
 //----- THUNKS --------------------------------------------------------------------------
 
@@ -12,6 +13,7 @@ import songs from './songs'
 const rootReducer = combineReducers({
     session: sessionReducer,
     songs,
+    albums,
 });
 
 //------- Enhancements ------------------------------------------------------------------

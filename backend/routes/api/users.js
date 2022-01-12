@@ -4,6 +4,9 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User } = require('../../db/models');
+const tracksRepository = require("../../db/tracksRepository");
+const albumsRepo = require("../../db/albumsRepo")
+
 
 const router = express.Router();
 
@@ -42,6 +45,19 @@ router.post('/', validateSignup, asyncHandler(async (req, res) => {
     });
 }),
 );
+
+router.get('/:id/songs', asyncHandler(async function (_req, res) {
+    const id = _req.params.id
+    const tracks = await tracksRepository.songsByUserId(id);
+    return res.json(tracks);
+}));
+
+
+router.get('/:id/albums', asyncHandler(async function (_req, res) {
+    const id = _req.params.id
+    const albums = await albumsRepo.albumsByUserId(id);
+    return res.json(albums);
+}));
 
 
 module.exports = router;

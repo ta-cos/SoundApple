@@ -6,6 +6,7 @@ const CREATE_SONG = 'songs/create'
 const LOAD_SONGS = 'songs/load'
 const UPDATE_SONG = 'songs/update'
 const DELETE_SONG = 'songs/delete'
+const ONE_SONG = 'songs/:id'
 
 //----- ACTION --------------------------------------------------------------------------
 
@@ -16,6 +17,7 @@ const newSong = (song) => {
         song,
     }
 }
+
 
 const loadSongs = list => (
     {
@@ -40,12 +42,12 @@ const removeSong = () => {
 
 
 export const createSong = (song) => async (dispatch) => {
-    const { userId, album, title, audio } = song;
+    const { userId, albumId, title, audio } = song;
     const response = await csrfFetch('/api/songs', {
         method: 'POST',
         body: JSON.stringify({
             userId,
-            album,
+            albumId,
             title,
             audio,
         }),
@@ -65,6 +67,16 @@ export const getSongs = () => async dispatch => {
         dispatch(loadSongs(list));
     }
 };
+
+export const getSongsById = (id) => async dispatch => {
+    const response = await fetch(`/api/users/${id}/songs`);
+
+    if (response.ok) {
+        const list = await response.json();
+        dispatch(loadSongs(list));
+    }
+}
+
 
 export const updateSong = (song) => async (dispatch) => {
     const { id, userId, albumId, title, audio } = song;

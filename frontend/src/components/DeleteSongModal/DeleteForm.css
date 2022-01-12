@@ -1,6 +1,4 @@
-.upload-form{
-    margin-top: auto;
-    margin-bottom: auto;
+.login-form{
     min-width: 640px;
     min-height: 480px;
     height: 550px;
@@ -16,9 +14,10 @@
     letter-spacing: -0.022em;
     color: white;
     background-color: #3a3a3d;
+    border-radius: 12px;
 }
 
-.upload-textbox{
+.form-textbox{
     font-size: 17px;
     line-height: 1.29412;
     font-weight: 400;
@@ -42,7 +41,7 @@
     align-self: center;
 }
 
-select{
+.delete-dropdown{
     font-size: 17px;
     line-height: 1.29412;
     font-weight: 400;
@@ -66,7 +65,7 @@ select{
     align-self: center;
 }
 
-.upload-button{
+.form-button{
     width: 50%;
     align-self: center;
     background-color: rgba(255, 103, 1, 0.5);

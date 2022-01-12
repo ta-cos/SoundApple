@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Modal } from '../../Context/Modal';
-import DeleteSongForm from './DeleteSongForm';
+import AddAlbumForm from './AddAlbumForm';
 
-
-function DeleteSongModal({ prop = false }) {
+function AddAlbumModal({ prop = false }) {
     const [showModal, setShowModal] = useState(prop);
     const hideButtonStyle = {
         display: 'none',
@@ -15,15 +14,15 @@ function DeleteSongModal({ prop = false }) {
                 onClick={() => setShowModal(true)}
                 style={prop ? hideButtonStyle : null}
             >
-                Remove Song
+                Add Album
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <DeleteSongForm />
+                    <AddAlbumForm />
                 </Modal>
             )}
         </>
     );
 }
 
-export default DeleteSongModal;
+export default AddAlbumModal;

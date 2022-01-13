@@ -35,25 +35,30 @@ function MyMusic() {
     return (
         <div>
             <div className="albums-div">
-                <h1>My Albums</h1>
+                <div className='header'>
+                    <h1>My Albums</h1>
+                    <AddAlbumModal />
+                </div>
+
                 {albums.map((album) => (
                     <div key={album.title}>
-                        <Link to={`/songs/${album.id}`}> {album.title} </Link>
+                        <h1 to={`/songs/${album.id}`}> {album.title} </h1>
                     </div>
                 ))}
-                <AddAlbumModal />
-                <button onClick={handleRemoveAlbum}>Remove Album</button>
             </div>
             <div className="songs-div">
-                <h1>My Songs</h1>
+                <div className='header'>
+                    <h1>My Songs</h1>
+                    <UploadSongModal />
+                    <EditSongModal />
+                    <RemoveSongModal />
+                </div>
                 {songs.map((song) => (
                     <div key={song.title}>
-                        <Link to={`/songs/${song.id}`}> {song.title} </Link>
+                        <h1 to={`/songs/${song.id}`}> {song.title} </h1>
                     </div>
                 ))}
-                <UploadSongModal />
-                <EditSongModal />
-                <RemoveSongModal />
+
             </div>
 
         </div>

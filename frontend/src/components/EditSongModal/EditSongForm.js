@@ -20,7 +20,7 @@ function EditSongForm() {
     const [title, setTitle] = useState("");
     const [album, setAlbum] = useState("");
     const [url, setURL] = useState("");
-    const [songId, setSongId] = useState(songs[0].id);
+    const [songId, setSongId] = useState(songs[0]?.id);
     const [errors, setErrors] = useState([]);
     const { id } = useParams();
     const userId = sessionUser.id

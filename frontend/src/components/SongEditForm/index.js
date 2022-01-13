@@ -20,6 +20,7 @@ function EditSongForm() {
         return <Redirect to="/login" />
     }
 
+    console.log(sessionUser)
     const userId = sessionUser.id
 
 

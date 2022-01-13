@@ -13,7 +13,7 @@ function DeleteSongForm() {
     })
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
-    const [songId, setSongId] = useState(songs[0].id);
+    const [songId, setSongId] = useState(songs[0]?.id);
     const userId = sessionUser.id
     const history = useHistory()
 

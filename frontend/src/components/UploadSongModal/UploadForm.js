@@ -15,7 +15,7 @@ function UploadForm() {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const [title, setTitle] = useState("");
-    const [albumId, setAlbum] = useState(albums[0].id);
+    const [albumId, setAlbum] = useState(albums[0]?.id);
     const [url, setURL] = useState("");
     const [errors, setErrors] = useState([]);
     const userId = sessionUser.id

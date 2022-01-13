@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import * as sessionActions from "../../store/session";
 import appleLogo from "../../images/apple-logo.png"
 import './upload.css'
 import { createSong } from "../../store/songs";
@@ -28,13 +27,13 @@ function UploadForm() {
 
     useEffect(() => {
         dispatch(getAlbumsById(sessionUser.id))
-    }, [dispatch])
+    }, [dispatch, sessionUser.id])
 
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        setErrors([])
         const song = {
             userId,
             title,

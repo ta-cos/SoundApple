@@ -63,3 +63,13 @@ hr{
     margin: none;
     text-align: center;
 }
+
+.external-links{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+
+.fa-github-square{
+    margin-right: 25px;
+}

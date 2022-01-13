@@ -29,7 +29,10 @@ function LeftMenu({ isLoaded }) {
 
             <p className='SalesPitch'>Thank you for listening, sign up or demo for more fun </p>
             <hr />
-            <Icons />
+            <div className='external-links'>
+                <a href='https://github.com/ta-cos' target='_blank'> <i className="fab fa-github-square"></i> </a>
+                <a href='https://linkedin.com/in/nathan-treadaway' target='_blank'> <i className="fab fa-linkedin"></i> </a>
+            </div>
         </div>
     );
 }

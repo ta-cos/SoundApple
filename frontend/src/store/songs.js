@@ -6,7 +6,6 @@ const CREATE_SONG = 'songs/create'
 const LOAD_SONGS = 'songs/load'
 const UPDATE_SONG = 'songs/update'
 const DELETE_SONG = 'songs/delete'
-const ONE_SONG = 'songs/:id'
 
 //----- ACTION --------------------------------------------------------------------------
 

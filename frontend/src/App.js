@@ -10,6 +10,7 @@ import Songs from "./components/Songs"
 import SongDetails from "./components/SongDetails";
 import MyMusic from "./components/MyMusic";
 import Home from "./components/Home"
+import NotFound from "./components/NotFound";
 
 
 function App() {
@@ -34,22 +35,21 @@ function App() {
           <Route exact path="/my-music">
             <MyMusic />
           </Route>
-          <Route path="/login">
+          <Route exact path="/login">
             <LoginFormModal />
           </Route>
-          <Route path="/signup">
+          <Route exact path="/signup">
             <SignUpFormModal />
           </Route>
-          <Route path="/library/:id">
+          <Route exact path="/library/:id">
             <SongDetails />
           </Route>
-          <Route path='/github.com/ta-cos' component={() => {
-            window.location.href = 'https://github.com/ta-cos';
-            return null;
-          }} />
-          <Route><h1>PAGE NOT FOUND</h1></Route>
+          <Route>
+            <NotFound />
+          </Route>
         </Switch>
-      )}
+      )
+      }
     </>
   );
 }

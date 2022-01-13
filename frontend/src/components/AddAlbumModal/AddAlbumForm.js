@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './AddAlbumForm.css'
 import appleLogo from "../../images/apple-logo.png"
@@ -16,7 +16,7 @@ function AddAlbumForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
+        setErrors([])
         const album = {
             userId,
             title,
@@ -55,7 +55,7 @@ function AddAlbumForm() {
                 ))}
             </ul>
 
-            <button disabled={errors.length > 0} className="form-button" type="submit">Submit</button>
+            <button className="form-button" type="submit">Submit</button>
 
         </form >
     );

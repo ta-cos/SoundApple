@@ -78,7 +78,7 @@ function UploadForm() {
                 onChange={(e) => setURL(e.target.value)}
             />
 
-            <button type="submit" disabled={errors.length > 0} className="upload-button">Upload</button>
+            <button type="submit" className="upload-button">Upload</button>
 
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}

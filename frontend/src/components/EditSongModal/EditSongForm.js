@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams, Redirect } from "react-router-dom";
-import * as sessionActions from "../../store/session";
+import { useHistory, Redirect } from "react-router-dom";
 import appleLogo from "../../images/apple-logo.png"
 import { updateSong } from "../../store/songs";
 
@@ -22,7 +21,6 @@ function EditSongForm() {
     const [url, setURL] = useState("");
     const [songId, setSongId] = useState(songs[0]?.id);
     const [errors, setErrors] = useState([]);
-    const { id } = useParams();
     const userId = sessionUser.id
     const history = useHistory()
 
@@ -32,6 +30,7 @@ function EditSongForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setErrors([])
         const song = {
             id: songId,
             userId,
@@ -88,7 +87,7 @@ function EditSongForm() {
                 onChange={(e) => setURL(e.target.value)}
             />
 
-            <button type="submit" disabled={errors.length > 0} className="upload-button">Edit</button>
+            <button type="submit" className="upload-button">Edit</button>
 
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}

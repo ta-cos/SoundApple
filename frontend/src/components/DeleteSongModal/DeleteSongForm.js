@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import appleLogo from "../../images/apple-logo.png"
-import { createSong, deleteSong } from "../../store/songs";
+import { deleteSong } from "../../store/songs";
 import { getAlbumsById } from "../../store/albums"
 
 import './DeleteForm.css'
@@ -14,12 +14,11 @@ function DeleteSongForm() {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const [songId, setSongId] = useState(songs[0]?.id);
-    const userId = sessionUser.id
     const history = useHistory()
 
     useEffect(() => {
         dispatch(getAlbumsById(sessionUser.id))
-    }, [dispatch])
+    }, [dispatch, sessionUser])
 
     const updateSongId = (e) => {
         setSongId(e.target.value)

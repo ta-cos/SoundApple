@@ -72,7 +72,7 @@ function SignupForm() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
             />
-            <button type="submit" disabled={errors.length > 0} className="signup-button">Sign Up</button>
+            <button type="submit" className="signup-button">Sign Up</button>
 
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}

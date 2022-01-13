@@ -1,0 +1,26 @@
+.icons-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.fa-github-square{
+    font-size: 80px;
+    color: #181616;
+
+}
+
+.fa-github-square:hover{
+    color: #ff6701;
+}
+
+.fa-linkedin{
+    font-size: 80px;
+    color: #181616;
+    text-decoration: none;
+}
+
+.fa-linkedin:hover{
+    color: #ff6701;
+}

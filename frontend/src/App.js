@@ -6,11 +6,10 @@ import Navigation from "./components/Navigation";
 import LoginFormModal from "./components/LoginFormModal";
 import SignUpFormModal from "./components/SignUpFormModal";
 import LeftMenu from "./components/LeftMenu";
-import Upload from "./components/Upload"
 import Songs from "./components/Songs"
 import SongDetails from "./components/SongDetails";
-import EditSongForm from "./components/SongEditForm";
 import MyMusic from "./components/MyMusic";
+import Home from "./components/Home"
 
 
 function App() {
@@ -26,7 +25,9 @@ function App() {
       <LeftMenu isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route exact path="/" />
+          <Route exact path="/" >
+            <Home />
+          </Route>
           <Route exact path="/library">
             <Songs />
           </Route>
@@ -42,6 +43,10 @@ function App() {
           <Route path="/library/:id">
             <SongDetails />
           </Route>
+          <Route path='/github.com/ta-cos' component={() => {
+            window.location.href = 'https://github.com/ta-cos';
+            return null;
+          }} />
           <Route><h1>PAGE NOT FOUND</h1></Route>
         </Switch>
       )}

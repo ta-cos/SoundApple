@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 import './LeftMenu.css';
 import appleLogo from '../../images/soundApple.jpeg'
+import Icons from '../Icons'
 
 function LeftMenu({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
@@ -27,6 +28,8 @@ function LeftMenu({ isLoaded }) {
             <hr />
 
             <p className='SalesPitch'>Thank you for listening, sign up or demo for more fun </p>
+            <hr />
+            <Icons />
         </div>
     );
 }

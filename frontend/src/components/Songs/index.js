@@ -31,7 +31,7 @@ const Songs = () => {
         return (
             <div className='notLoggedIn'>
                 <img className='sadCat' src="https://media.istockphoto.com/photos/cute-kitten-portrait-british-shorthair-cat-picture-id916159418?k=20&m=916159418&s=612x612&w=0&h=rHUiHZGWTjqPyO7ArbEHWUpezE5u46ncxDCH24Vrj9M="></img>
-                <h2>You must be Logged in to continue</h2>
+                <h2>Dr. fluffy says you must be Logged in to continue</h2>
                 <LoginFormModal prop={true} />
             </div>
         )
@@ -43,7 +43,7 @@ const Songs = () => {
     }
     return (
         <div className='songDiv'>
-            {songs.map((song, index) => (
+            {songs.map((song) => (
                 <div key={song?.id} className='song-container'>
                     <img className='song-img' src={song?.Album?.img} />
                     <Link className="title" to={`/library/${song?.id}`}> {song?.title} </Link>

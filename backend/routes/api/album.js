@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get('/', asyncHandler(async function (_req, res) {
     const albums = await albumsRepo.list();
-    return res.json(tracks);
+    return res.json(albums);
 }));
 
 router.post('/', requireAuth, asyncHandler(async function (_req, res) {

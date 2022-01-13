@@ -33,15 +33,6 @@ function MyMusic() {
         console.log("removed Album.... not really though")
     }
 
-    const handleAddSong = () => {
-        console.log("added Song... not really though")
-    }
-
-    const handleRemoveSong = () => {
-        console.log("removed Song.... not really though")
-
-    }
-
     return (
         <div>
             <div className="albums-div">

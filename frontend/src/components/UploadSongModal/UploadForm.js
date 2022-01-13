@@ -39,7 +39,7 @@ function UploadForm() {
             userId,
             title,
             albumId: +albumId,
-            url
+            audio: url
         }
 
         let createdSong = await dispatch(createSong(song));

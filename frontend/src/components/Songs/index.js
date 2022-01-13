@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, Redirect } from 'react-router-dom';
 import { getOneSong, getSongs } from '../../store/songs';
+import { getAlbums } from '../../store/albums'
 import LoginFormModal from '../LoginFormModal';
 import SongDetails from '../SongDetails';
 import Player from '../Player'
@@ -23,6 +24,7 @@ const Songs = () => {
         return state.songs.list;
     });
 
+
     const sessionUser = useSelector((state) => state.session.user);
 
     if (!sessionUser) {
@@ -41,11 +43,11 @@ const Songs = () => {
     }
     return (
         <div className='songDiv'>
-            <h1>All Songs:</h1>
-            {songs.map((song) => (
-                <div key={song.id}>
-                    <Link to={`/library/${song.id}`}> {song.title} </Link>
-                    <Player />
+            {songs.map((song, index) => (
+                <div key={song?.id} className='song-container'>
+                    <img className='song-img' src={song?.Album.img} />
+                    <Link className="title" to={`/library/${song?.id}`}> {song?.title} </Link>
+                    <Player prop={song?.audio} />
                 </div>
 
             ))}

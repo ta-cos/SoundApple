@@ -1,7 +1,8 @@
 const { Track } = require("./models");
+const { Album } = require("./models")
 
 async function list() {
-    return await Track.findAll();
+    return await Track.findAll({ include: Album });
 }
 
 async function songsByUserId(userId) {

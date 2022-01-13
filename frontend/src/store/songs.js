@@ -113,21 +113,15 @@ const songReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case LOAD_SONGS:
-            console.log("@@@@@@@@@@@@@@")
-            console.log(state)
             const allSongs = {}
             action.list.forEach(song => {
                 allSongs[song.id] = song;
             });
-            console.log("##############")
-            console.log(allSongs)
-            newState = Object.assign({}, state);
-            console.log("!!!!!!!!!!!!!!!!")
-            console.log(newState)
-            newState = { ...allSongs, list: action.list }
-            console.log("!!!!!!!!!!!!!!!!")
-            console.log(newState)
-            return newState
+            return {
+                ...allSongs,
+                ...state,
+                list: action.list,
+            };
         case CREATE_SONG:
             if (!state[action.song.id]) {
                 const newState = {
@@ -136,7 +130,6 @@ const songReducer = (state = initialState, action) => {
                 };
                 const songList = newState.list.map(id => newState[id]);
                 songList.push(action.song);
-
                 return newState;
             } return {
                 ...state,

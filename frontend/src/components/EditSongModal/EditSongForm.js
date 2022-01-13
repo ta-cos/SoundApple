@@ -24,6 +24,7 @@ function EditSongForm() {
     const [errors, setErrors] = useState([]);
     const { id } = useParams();
     const userId = sessionUser.id
+    const history = useHistory()
 
     if (!sessionUser) {
         return <Redirect to="/login" />
@@ -39,6 +40,8 @@ function EditSongForm() {
             url
         }
         await dispatch(updateSong(song));
+
+        history.push('/library')
     };
 
     const updateSongId = (e) => {

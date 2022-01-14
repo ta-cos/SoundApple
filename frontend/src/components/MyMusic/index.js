@@ -39,12 +39,14 @@ function MyMusic() {
                     <AddAlbumModal />
                     <DeleteAlbumModal />
                 </div>
-
-                {albums.map((album) => (
-                    <div key={album.title}>
-                        <h1 to={`/songs/${album.id}`}> {album.title} </h1>
-                    </div>
-                ))}
+                <div id='myAlbumContent'>
+                    {albums.map((album) => (
+                        <div id='myAlbum' key={album.title}>
+                            <img id="album-img" src={album.img}></img>
+                            <h1 to={`/songs/${album.id}`}> {album.title} </h1>
+                        </div>
+                    ))}
+                </div>
             </div>
             <div className="songs-div">
                 <div className='header'>

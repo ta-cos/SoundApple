@@ -24,7 +24,7 @@ function AddAlbumForm() {
         }
 
         dispatch(createAlbum(album))
-        history.push('/my-music')
+        history.push('/library')
     }
 
     return (

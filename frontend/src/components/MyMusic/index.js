@@ -7,6 +7,7 @@ import UploadSongModal from '../UploadSongModal';
 import AddAlbumModal from '../AddAlbumModal';
 import RemoveSongModal from '../DeleteSongModal'
 import EditSongModal from '../EditSongModal';
+import DeleteAlbumModal from '../DeleteAlbumModal';
 
 import './MyMusic.css'
 
@@ -18,7 +19,8 @@ function MyMusic() {
     useEffect(() => {
         dispatch(getSongsById(sessionUser.id))
         dispatch(getAlbumsById(sessionUser.id))
-    }, []);
+
+    }, [dispatch]);
 
     const songs = useSelector(state => {
         return state.songs.list;
@@ -28,9 +30,6 @@ function MyMusic() {
         return state.albums.list
     })
 
-    const handleRemoveAlbum = () => {
-        console.log("removed Album.... not really though")
-    }
 
     return (
         <div>
@@ -38,6 +37,7 @@ function MyMusic() {
                 <div className='header'>
                     <h1>My Albums</h1>
                     <AddAlbumModal />
+                    <DeleteAlbumModal />
                 </div>
 
                 {albums.map((album) => (

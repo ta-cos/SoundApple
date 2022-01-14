@@ -1,11 +1,30 @@
-.profile-dropdown{
-    text-decoration: none;
-    list-style: none;
+#profile-dropdown{
+    height: 10%;
 }
 
-.profile-dropdown > button{
-    width: inherit;
-    background-color: white;
-    color: #ff6701;
-    border: none;
+#username, #email{
+    font-weight: bold;
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+#logout{
+    font-weight: bold;
+    padding: 5px;
+    margin: 0px;
+    color: #1f1f1f;
+    border-radius: 12px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    margin-bottom: 15px;
+    margin-top: 15px;
+
+}
+
+#logout:hover{
+    color: #1f1f1f;
+    border: 1px solid #1f1f1f;
 }

@@ -73,3 +73,12 @@ hr{
 .fa-github-square{
     margin-right: 25px;
 }
+
+.fab{
+    font-size: 80px;
+    color: #1f1f1f;
+}
+
+.fab:hover{
+    color: #ff6801;
+}

@@ -24,7 +24,7 @@ router.post('/:id', requireAuth, asyncHandler(async function (_req, res) {
 
 router.delete('/:id', requireAuth, asyncHandler(async function (_req, res) {
     const id = _req.params.id
-    const albumId = await albumsRepo.deletealbum(id);
+    const albumId = await albumsRepo.deleteAlbum(id);
     return res.json(albumId);
 }));
 

@@ -13,11 +13,19 @@ async function albumsByUserId(userId) {
 }
 
 async function addAlbum(details) {
-
-    const album = await Album.create({
-        ...details,
-    });
-    return await Album.findByPk(album.id);
+    const { userId, title, img } = details;
+    if (img === '') {
+        const album = await Album.create({
+            userId,
+            title
+        })
+        return await Album.findByPk(album.id)
+    } else {
+        const album = await Album.create({
+            ...details,
+        });
+        return await Album.findByPk(album.id);
+    }
 }
 
 async function deleteAlbum(AlbumId) {

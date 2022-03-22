@@ -67,18 +67,16 @@ export const getAlbums = () => async dispatch => {
 };
 
 export const getAlbumsById = (userId) => async dispatch => {
-
     const response = await fetch(`/api/users/${userId}/albums`);
-
     if (response.ok) {
         const list = await response.json();
+        console.log(list)
         dispatch(loadAlbums(list));
     }
 };
 
 export const updateAlbums = (album) => async (dispatch) => {
     const { id, userId, title, img } = album;
-
     const response = await csrfFetch(`/api/albums/${id}`, {
         method: 'POST',
         body: JSON.stringify({

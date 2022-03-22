@@ -14,21 +14,15 @@ import './MyMusic.css'
 function MyMusic() {
 
     const dispatch = useDispatch();
-    const sessionUser = useSelector((state) => state.session.user);
+    const sessionUser = useSelector(state => state.session.user);
 
     useEffect(() => {
         dispatch(getSongsById(sessionUser.id))
         dispatch(getAlbumsById(sessionUser.id))
-
     }, [dispatch]);
 
-    const songs = useSelector(state => {
-        return state.songs.list;
-    });
-
-    const albums = Object.values(useSelector(state => state.albums))
-
-    console.log(albums)
+    const songs = Object.values(useSelector(state => state.songs));
+    const albums = Object.values(useSelector(state => state.albums));
 
     return (
         <div>

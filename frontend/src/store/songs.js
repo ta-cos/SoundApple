@@ -10,30 +10,31 @@ const DELETE_SONG = 'songs/delete'
 //----- ACTION --------------------------------------------------------------------------
 
 
-const newSong = (song) => {
+const newSong = (songs) => {
     return {
         type: CREATE_SONG,
-        song,
+        songs,
     }
 }
 
 
-const loadSongs = list => (
+const loadSongs = songs => (
     {
         type: LOAD_SONGS,
-        list,
+        songs,
     });
 
-const editSong = (song) => {
+const editSong = (songs) => {
     return {
         type: UPDATE_SONG,
-        payload: song,
+        payload: songs,
     }
 }
 
-const removeSong = () => {
+const removeSong = (id) => {
     return {
-        type: DELETE_SONG
+        type: DELETE_SONG,
+        id
     }
 }
 
@@ -99,52 +100,28 @@ export const deleteSong = (id) => async (dispatch) => {
     const response = await csrfFetch(`/api/songs/${id}`, {
         method: 'DELETE',
     });
-    dispatch(removeSong());
+    dispatch(removeSong(id));
     return response;
 };
 
 //----- REDUCER --------------------------------------------------------------------------
 
-const initialState = {
-    list: []
-};
+const initialState = {};
 const songReducer = (state = initialState, action) => {
-    let newState;
+    let newState = { ...state };
     switch (action.type) {
         case LOAD_SONGS:
-            const allSongs = {}
-            action.list.forEach(song => {
-                allSongs[song.id] = song;
+            action.songs.forEach(song => {
+                newState[song.id] = song
             });
-            return {
-                ...allSongs,
-                ...state,
-                list: action.list,
-            };
+            return newState
         case CREATE_SONG:
-            if (!state[action.song.id]) {
-                const newState = {
-                    ...state,
-                    [action.song.id]: action.song
-                };
-                const songList = newState.list.map(id => newState[id]);
-                songList.push(action.song);
-                return newState;
-            } return {
-                ...state,
-                [action.song.id]: {
-                    ...state[action.song.id],
-                    ...action.song,
-                }
-            };
         case UPDATE_SONG:
-            newState = Object.assign({}, state);
-            newState.song = action.payload;
-            return newState;
+            newState[action.songs.id] = action.songs
+            return newState
         case DELETE_SONG:
-            newState = Object.assign({}, state);
-            newState.song = null;
-            return newState;
+            delete newState[action.id];
+            return newState
         default:
             return state;
     }

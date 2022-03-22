@@ -1,3 +1,13 @@
+.content{
+    display: flex;
+    flex-direction: column;
+}
+
+.heading{
+    font-size: 50px;
+    margin-top: 15px;
+}
+
 .songDiv{
     display: grid;
         grid-template-columns: repeat(5, 20%);

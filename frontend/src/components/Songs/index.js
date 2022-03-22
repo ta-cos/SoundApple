@@ -5,7 +5,6 @@ import { getSongs } from '../../store/songs';
 import LoginFormModal from '../LoginFormModal';
 import Player from '../Player'
 
-
 import './songs.css'
 
 
@@ -40,15 +39,18 @@ const Songs = () => {
         return null;
     }
     return (
-        <div className='songDiv'>
-            {songs.map((song) => (
-                <div key={song?.id} className='song-container'>
-                    <img alt='the album cover' className='song-img' src={song?.Album?.img} />
-                    <Link className="title" to={`/library/${song?.id}`}> {song?.title} </Link>
-                    <Player prop={song?.audio} />
-                </div>
+        <div className='songs-content'>
+            <h1 className='heading'>All Songs</h1>
+            <div className='songDiv'>
+                {songs.map((song) => (
+                    <div key={song?.id} className='song-container'>
+                        <img alt='the album cover' className='song-img' src={song?.Album?.img} />
+                        <Link className="title" to={`/library/${song?.id}`}> {song?.title} </Link>
+                        <Player prop={song?.audio} />
+                    </div>
 
-            ))}
+                ))}
+            </div>
         </div>
     )
 

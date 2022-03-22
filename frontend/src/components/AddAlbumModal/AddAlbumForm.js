@@ -5,7 +5,7 @@ import appleLogo from "../../images/apple-logo.png"
 import { createAlbum } from "../../store/albums";
 import { useHistory } from "react-router-dom"
 
-function AddAlbumForm() {
+function AddAlbumForm({ open }) {
     const sessionUser = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
     const [title, setTitle] = useState("");
@@ -14,7 +14,7 @@ function AddAlbumForm() {
     const userId = sessionUser.id;
     const history = useHistory()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         setErrors([])
         const album = {
@@ -23,8 +23,8 @@ function AddAlbumForm() {
             img
         }
 
-        dispatch(createAlbum(album))
-        history.push('/library')
+        await dispatch(createAlbum(album))
+        open(false)
     }
 
     return (

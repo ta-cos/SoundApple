@@ -10,29 +10,30 @@ const DELETE_ALBUM = 'albums/delete'
 //----- ACTION --------------------------------------------------------------------------
 
 
-const newAlbum = (album) => {
+const newAlbum = (albums) => {
     return {
         type: CREATE_ALBUM,
-        album,
+        albums,
     }
 }
 
-const loadAlbums = list => (
+const loadAlbums = albums => (
     {
         type: LOAD_ALBUMS,
-        list,
+        albums,
     });
 
-const editAlbum = (album) => {
+const editAlbum = (albums) => {
     return {
         type: UPDATE_ALBUM,
-        payload: album,
+        payload: albums,
     }
 }
 
-const removeAlbum = () => {
+const removeAlbum = (id) => {
     return {
-        type: DELETE_ALBUM
+        type: DELETE_ALBUM,
+        id
     }
 }
 
@@ -96,52 +97,28 @@ export const deleteAlbum = (id) => async (dispatch) => {
     const response = await csrfFetch(`/api/albums/${id}`, {
         method: 'DELETE',
     });
-    dispatch(removeAlbum());
+    dispatch(removeAlbum(id));
     return response;
 };
 
 //----- REDUCER --------------------------------------------------------------------------
 
-const initialState = {
-    list: []
-};
+const initialState = {};
 const albumReducer = (state = initialState, action) => {
-    let newState;
+    let newState = { ...state };
     switch (action.type) {
         case LOAD_ALBUMS:
-            const allAlbums = {}
-            action.list.forEach(albums => {
-                allAlbums[albums.id] = albums;
+            action.albums.forEach(album => {
+                newState[album.id] = album
             });
-            return {
-                ...allAlbums,
-                ...state,
-                list: action.list,
-            };
+            return newState
         case CREATE_ALBUM:
-            if (!state[action.album.id]) {
-                const newState = {
-                    ...state,
-                    [action.album.id]: action.album
-                };
-                const albumList = newState.list.map(id => newState[id]);
-                albumList.push(action.album);
-                return newState;
-            } return {
-                ...state,
-                [action.album.id]: {
-                    ...state[action.album.id],
-                    ...action.album,
-                }
-            };
         case UPDATE_ALBUM:
-            newState = Object.assign({}, state);
-            newState.album = action.payload;
-            return newState;
+            newState[action.albums.id] = action.albums
+            return newState
         case DELETE_ALBUM:
-            newState = Object.assign({}, state);
-            newState.album = null;
-            return newState;
+            delete newState[action.id];
+            return newState
         default:
             return state;
     }

@@ -45,7 +45,8 @@ function UploadForm() {
 
 
         if (createdSong) {
-            history.push('/library');
+            // history.push('/library');
+            console.log('created')
         }
     };
 

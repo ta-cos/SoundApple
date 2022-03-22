@@ -19,7 +19,7 @@ function DeleteAlbumModal({ prop = false }) {
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <DeleteAlbumForm />
+                    <DeleteAlbumForm open={setShowModal} />
                 </Modal>
             )}
         </>

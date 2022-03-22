@@ -26,10 +26,9 @@ function MyMusic() {
         return state.songs.list;
     });
 
-    const albums = useSelector(state => {
-        return state.albums.list
-    })
+    const albums = Object.values(useSelector(state => state.albums))
 
+    console.log(albums)
 
     return (
         <div>
@@ -40,7 +39,7 @@ function MyMusic() {
                     <DeleteAlbumModal />
                 </div>
                 <div id='myAlbumContent'>
-                    {albums.map((album) => (
+                    {albums?.map((album) => (
                         <div id='myAlbum' key={album.title}>
                             <img id="album-img" src={album.img}></img>
                             <h1 to={`/songs/${album.id}`}> {album.title} </h1>
@@ -55,7 +54,7 @@ function MyMusic() {
                     <EditSongModal />
                     <RemoveSongModal />
                 </div>
-                {songs.map((song) => (
+                {songs?.map((song) => (
                     <div key={song.title}>
                         <h1 to={`/songs/${song.id}`}> {song.title} </h1>
                     </div>

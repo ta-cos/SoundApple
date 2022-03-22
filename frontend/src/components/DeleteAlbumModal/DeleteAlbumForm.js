@@ -6,10 +6,9 @@ import { deleteAlbum } from "../../store/albums";
 import { getAlbumsById } from "../../store/albums"
 
 
-function DeleteAlbumForm() {
-    const albums = useSelector(state => {
-        return state.albums.list
-    })
+function DeleteAlbumForm({ open }) {
+    const albums = Object.values(useSelector(state => state.albums))
+
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const [albumId, setAlbumId] = useState(albums[0]?.id);
@@ -26,7 +25,7 @@ function DeleteAlbumForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await dispatch(deleteAlbum(albumId))
-        history.push('/library')
+        open(false)
     };
 
     return (

@@ -18,7 +18,7 @@ function AddAlbumModal({ prop = false }) {
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <AddAlbumForm />
+                    <AddAlbumForm open={setShowModal}/>
                 </Modal>
             )}
         </>

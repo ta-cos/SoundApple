@@ -27,7 +27,7 @@ function DeleteSongForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await dispatch(deleteSong(songId))
-        history.push('/library')
+        // history.push('/library')
     };
 
     return (

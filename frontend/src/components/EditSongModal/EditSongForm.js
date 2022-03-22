@@ -40,7 +40,6 @@ function EditSongForm() {
         }
         await dispatch(updateSong(song));
 
-        history.push('/library')
     };
 
     const updateSongId = (e) => {
